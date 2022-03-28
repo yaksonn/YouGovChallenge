@@ -92,7 +92,7 @@ class TimersFragment : BaseFragment<FragmentTimersBinding>(FragmentTimersBinding
 
                 timerList[0] = TimerModel(hours.toString(), minute.toString(), seconds.toString())
                 adapter = TimersAdapter((timerList))
-                viewModel.initChangeListener()
+                viewModel.setData()
             }
 
             override fun onFinish() {

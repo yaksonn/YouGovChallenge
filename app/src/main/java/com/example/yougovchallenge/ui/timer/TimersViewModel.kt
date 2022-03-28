@@ -10,13 +10,13 @@ class TimersViewModel : BaseViewModel() {
     private val _timerData: MutableLiveData<Boolean> = MutableLiveData()
     val timerData get() = _timerData
 
-    fun initChangeListener() {
+    fun setData() {
         viewModelScope.launch {
-            updateLiveData()
+            postData()
         }
     }
 
-    private fun updateLiveData() {
+    private fun postData() {
         _timerData.postValue(true)
     }
 
