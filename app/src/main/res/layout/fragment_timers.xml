@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingVertical="@dimen/marginXSmall">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/hourTextInputLayout"
+        style="@style/TextInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginSmall"
+        android:layout_marginTop="@dimen/marginSmall"
+        android:layout_marginEnd="@dimen/marginSmall"
+        android:hint="@string/hour_hint"
+        app:layout_constraintEnd_toStartOf="@id/minuteTextInputLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/hourTextInputEditText"
+            style="@style/EditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:fontFamily="@font/heebo_regular"
+            android:inputType="datetime" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/minuteTextInputLayout"
+        style="@style/TextInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/marginSmall"
+        android:hint="@string/minutes_hint"
+        app:layout_constraintBottom_toBottomOf="@id/hourTextInputLayout"
+        app:layout_constraintEnd_toStartOf="@+id/secondTextInputLayout"
+        app:layout_constraintStart_toEndOf="@+id/hourTextInputLayout"
+        app:layout_constraintTop_toTopOf="@id/hourTextInputLayout"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/minuteTextInputEditText"
+            style="@style/EditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/heebo_regular"
+            android:imeOptions="actionDone"
+            android:inputType="datetime" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/secondTextInputLayout"
+        style="@style/TextInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/marginSmall"
+        android:hint="@string/seconds_hint"
+        app:layout_constraintBottom_toBottomOf="@id/hourTextInputLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/minuteTextInputLayout"
+        app:layout_constraintTop_toTopOf="@id/hourTextInputLayout"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/secondTextInputEditText"
+            style="@style/EditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/heebo_regular"
+            android:imeOptions="actionDone"
+            android:inputType="datetime" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/startTimerButton"
+        style="@style/ButtonParent.ButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="?actionBarSize"
+        android:layout_marginTop="@dimen/marginSmall"
+        android:enabled="false"
+        android:text="@string/start_timer_text"
+        app:layout_constraintEnd_toEndOf="@+id/secondTextInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/hourTextInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/hourTextInputLayout"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/runningTimerHeaderTextView"
+        style="@style/textStyle.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/marginSmall"
+        android:text="@string/running_timer_header"
+        android:textSize="@dimen/textSize20"
+        app:layout_constraintBottom_toTopOf="@id/runningTimerRecyclerView"
+        app:layout_constraintStart_toStartOf="@+id/startTimerButton"
+        app:layout_constraintTop_toBottomOf="@+id/startTimerButton"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/runningTimerRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/runningTimerHeaderTextView"
+        tools:ignore="MissingConstraints"
+        tools:listitem="@layout/row_timer_recycler" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
